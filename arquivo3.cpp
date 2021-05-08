@@ -7,12 +7,12 @@ int main()
 	char  stringParaEscrever[50];
 	FILE * arq;
 	printf("Frase que você gostaria de inserir no texto:\n");
-	scanf("%s",stringParaEscrever);
-	arq=fopen("texto.txt","w");
+	scanf("%[^\n]",stringParaEscrever);
+	arq=fopen("texto.txt","a");
 	if(arq==NULL)
 	fprintf(stdout,"ARQUIVO NULO!\n");
 	else
-	fprintf(arq,"%s",stringParaEscrever);
+	fprintf(arq," %s ",stringParaEscrever);
 // 	fwrite(stringParaEscrever,1,strlen(stringParaEscrever),arq);
 	fclose(arq);
 	return 0;
